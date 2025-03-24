@@ -1,0 +1,376 @@
+
+body {
+  font-family: "Arima", system-ui;
+  background: url("https://movie-app-shimra.netlify.app/movie%20background.jpg") 
+              no-repeat center center fixed;
+  background-size: cover;
+  background-color: #808080fa;
+  background-blend-mode: multiply;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+.trailer-button {
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input {
+  width: 70%;
+  padding: 9px;
+  border: 2px solid white;
+  font-size: 18px;
+  outline: none;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 40px;
+  transition: 0.3s;
+  font-family: "Arima", system-ui;
+}
+
+input::placeholder {
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "Arima", system-ui;
+}
+
+input:focus {
+  border-color: #8750f7;
+  box-shadow: 0 0 12px rgba(135, 80, 247, 0.8);
+}
+
+button {
+  font-family: "Arima", system-ui;
+  padding: 9px 23px;
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  border: none;
+  border-radius: 42px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  margin: 5px;
+}
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+
+.movie {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 12px;
+  width: 223px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.movie:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 15px rgba(135, 80, 247, 0.8);
+}
+
+
+.movie img {
+  width: 100%;
+  height: 280px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+.movie h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+
+.movie button {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 29px;
+  transition: background 0.3s ease-in-out;
+}
+
+.movie button:first-of-type {
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  color: white;
+}
+
+.movie button:last-of-type {
+  color: black;
+}
+
+
+h1 {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 
+    2px 2px 0px #8750f7,   
+    4px 4px 0px #2a1454, 
+    6px 6px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  padding: 10px 18px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+
+.error {
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.heart-icon {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  padding: 6px 16px;
+  border-radius: 26px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.heart-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.heart-icon svg {
+  margin-right: 5px;
+}
+
+
+.favorite-count {
+  background: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+  min-width: 18px;
+  min-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 18px;
+  right: -18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.movie-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.movie-details {
+  background: #0009;
+  padding: 20px;
+  width: 400px;
+  max-height: 80vh;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(135, 80, 247, 0.8);
+  transition: 0.3s ease-in-out;
+}
+
+
+.movie-details img {
+  width: 50%;
+  height: 30vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #8750f7, #2a1454);
+  border: none;
+  width: 40px;
+  height: 41px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.movie-details::-webkit-scrollbar {
+  width: 8px;
+}
+
+.movie-details::-webkit-scrollbar-thumb {
+  background: #8750f7;
+  border-radius: 4px;
+}
+
+.movie-details::-webkit-scrollbar-thumb:hover {
+  background: #8750f7;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.loading {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.error img {
+  width: 250px;
+  margin-top: 10px;
+  border-radius: 11px;
+}
+
+
+.movie-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.movie-buttons button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  input {
+    width: 100%;
+    font-size: 16px;
+}
+
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .movies {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie {
+    width: 50%;
+  }
+
+  .movie-details {
+    width: 50%;
+  }
+
+  .heart-icon {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+  }
+
+  .favorite-count {
+    top: -6px;
+    right: -10px;
+    padding: 1px 4px;
+}
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  input {
+    font-size: 20px;
+  }
+
+
+  .movie h3 {
+    font-size: 14px;
+  }
+
+  .movie button {
+    font-size: 12px;
+  }
+
+  .movie-details {
+    width: 95%;
+    max-height: 75vh;
+    padding: 15px;
+  }
+
+  .close-button {
+    width: 36px;
+    height: 37px;
+    font-size: 13px;
+    top: -3px;
+    right: 1px;
+}
+
+  .trailer-button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
